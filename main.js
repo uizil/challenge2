@@ -46,13 +46,20 @@ Note: please write one or two lines here describing your solution.
 */
 
 function makeComputer(type, color, weight) {
-  // TODO: Your code here
+  var obj = {
+    type: type,
+    color: color,
+    weight: weight
+  }
+  return obj;
 }
 
 // Write a function displayComputer that can be used to display one computer.
 
 function displayComputer(computer) {
-  // TODO: Your code here
+  each(computer, function(elm, key) {
+    console.log(computer)
+  })
 }
 
 //=============================================================================
@@ -71,9 +78,11 @@ Note: please write one or two lines here describing your solution.
 var strArr = ['hello', 'world', 'whirled', 'peas'];
 uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
 */
-
+// i use map to iterate over arrayOfStrings and create new array with all strings uppercase
 function uppercaseAll(arrayOfStrings) {
-  // TODO: your code here
+  return map(arrayOfStrings, function(str) {
+    return str.toUpperCase();
+  });
 }
 
 //=============================================================================
@@ -91,7 +100,7 @@ Note: please write one or two lines here describing your solution.
 
 Here’s the data you’ll work with:
 */
-
+// I use filter to iterate over the array and test if the population is higher than 500 million
 var data = [
   {
     country: 'China',
@@ -112,7 +121,11 @@ var data = [
 ];
 
 function highestPopulation(arrayOfObjects) {
-  // TODO: your code here
+  return filter(arrayOfObjects, function(elm) {
+    if (elm.population > 500000000) {
+      return elm;
+    }
+  })
 }
 
 //=============================================================================
@@ -130,9 +143,11 @@ halveAll(numsArray); ==> [ 1, 3, 10, 4, 7 ]
 
 Note: please write one or two lines here describing your solution.
 */
-
+// I use map to iterate over numbers and create a new array
 function halveAll(numbers) {
-  // your code is here
+  return map(numbers, function(number) {
+    return number / 2;
+  })
 }
 
 //=============================================================================
@@ -147,8 +162,13 @@ values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129]
 
 Note: please write one or two lines here describing your solution.
 */
+// I create a new array to push inside the values of object i use each to iterate over obj
 function values(obj) {
-  // TODO: your code here
+  var result = [];
+  each(obj, function(elm) {
+    result.push(elm);    
+  })
+  return result;
 }
 
 //Good Luck :))
